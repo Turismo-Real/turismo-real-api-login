@@ -1,0 +1,13 @@
+bin
+obj
+.vs
+.vscode
+/api-login.API/.vs
+/api-login.API/bin
+/api-login.API/obj
+/api-login.CORE/bin
+/api-login.CORE/obj
+/api-login.INFRASTRUCTURE/bin
+/api-login.INFRASTRUCTURE/obj
+/api-login.UnitTests/bin
+/api-login.UnitTests/obj
