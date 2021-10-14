@@ -1,15 +1,13 @@
-﻿using api_login.INFRASTRUCTURE.Repositories;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using api_login.CORE.DTOs;
-using api_login.CORE.Interfaces;
-using api_login.CORE.Log;
+using TurismoReal_Login.Core.DTOs;
+using TurismoReal_Login.Core.Interfaces;
+using TurismoReal_Login.Core.Log;
 
-namespace api_login.API.Controllers
+namespace TurismoReal_Login.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -21,10 +19,10 @@ namespace api_login.API.Controllers
         }
 
         [HttpGet]
-        public async Task<object> Login([FromBody]LoginPayload pyl)
+        public async Task<object> Login([FromBody] LoginPayload pyl)
         {
             LogModel log = new LogModel();
-            log.servicio = "turismo-real-api-login";
+            log.servicio = "turismo-real-login";
             log.payload = pyl;
             DateTime startService = DateTime.Now;
 

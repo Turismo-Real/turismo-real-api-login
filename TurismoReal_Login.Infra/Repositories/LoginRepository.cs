@@ -1,11 +1,9 @@
-﻿using api_login.CORE.Interfaces;
+﻿using TurismoReal_Login.Core.Interfaces;
 using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace api_login.INFRASTRUCTURE.Repositories
+namespace TurismoReal_Login.Infra.Repositories
 {
     public class LoginRepository : ILoginRepository
     {

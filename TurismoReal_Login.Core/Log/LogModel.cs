@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace api_login.CORE.Log
+namespace TurismoReal_Login.Core.Log
 {
     public class LogModel
     {
@@ -19,6 +17,5 @@ namespace api_login.CORE.Log
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this) + "\n";
         }
-
     }
 }

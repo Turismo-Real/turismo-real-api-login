@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TurismoReal_Login.Core\TurismoReal_Login.Core.csproj" />
+    <ProjectReference Include="..\TurismoReal_Login.Infra\TurismoReal_Login.Infra.csproj" />
+  </ItemGroup>
+
+
+</Project>

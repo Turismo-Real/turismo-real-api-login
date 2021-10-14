@@ -1,19 +1,12 @@
-using api_login.CORE.Interfaces;
-using api_login.INFRASTRUCTURE.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using TurismoReal_Login.Core.Interfaces;
+using TurismoReal_Login.Infra.Repositories;
 
-namespace api_login.API
+namespace TurismoReal_Login.Api
 {
     public class Startup
     {

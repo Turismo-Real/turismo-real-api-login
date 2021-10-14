@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace api_login.CORE.DTOs
+﻿namespace TurismoReal_Login.Core.DTOs
 {
     public class BadResponse
     {
