@@ -29,8 +29,8 @@ Para consumir el servicio cuando este se encuentra en ejecución, se debe hacer 
 **PAYLOAD**
 ```
 {
-    "email": "f.donoso@gmail.com",
-	"password": "117735823fadae51db091c7d63e60eb0"
+  "email": "f.donoso@gmail.com",
+  "password": "117735823fadae51db091c7d63e60eb0"
 }
 ```  
 **RESPUESTA OK**
