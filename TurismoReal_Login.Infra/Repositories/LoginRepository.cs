@@ -1,7 +1,6 @@
-﻿using TurismoReal_Login.Core.Interfaces;
-using Oracle.ManagedDataAccess.Client;
-using System;
+﻿using Oracle.ManagedDataAccess.Client;
 using System.Threading.Tasks;
+using TurismoReal_Login.Core.Interfaces;
 using TurismoReal_Login.Infra.Context;
 
 namespace TurismoReal_Login.Infra.Repositories

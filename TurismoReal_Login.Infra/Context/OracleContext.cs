@@ -15,17 +15,17 @@ namespace TurismoReal_Login.Infra.Context
 
         public OracleConnection GetConnection()
         {
-            return this.connection;
+            return connection;
         }
 
         public void OpenConnection()
         {
-            this.connection.Open();
+            connection.Open();
         }
 
         public void CloseConnection()
         {
-            this.connection.Close();
+            connection.Close();
         }
 
     }
