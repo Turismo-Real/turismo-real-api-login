@@ -1,5 +1,9 @@
 # Turismo Real Login  
 Servicio REST utilizado para saber si un usuario se encuentra registrado en el sistema y esta autorizado para loguearse.  
+
+## Prerrequisito
+Antes de levantar el servicio REST se debe haber levantado completamente la base de datos en Oracle, de lo contrario el servicio no funcionará como corresponde.  
+- [Levantar base de datos Turismo Real - Oracle 11g](https://github.com/Turismo-Real/turismo-real-database)
   
 ## Levantar Servicio
 Para poder levantar el servicio localmente, lo primero que se debe asegurar es tener instalado el runtime de .NET Core 3.1 que se puede descargar desde el siguiente enlace *(se recomienda instalar SDK)*: [Runtime y SDK .NET Core 3.1 LTS](https://dotnet.microsoft.com/download).  
