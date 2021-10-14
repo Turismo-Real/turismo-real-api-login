@@ -18,7 +18,7 @@ namespace TurismoReal_Login.Api.Controllers
             _loginRepository = loginRepository;
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<object> Login([FromBody] LoginPayload pyl)
         {
             LogModel log = new LogModel();
