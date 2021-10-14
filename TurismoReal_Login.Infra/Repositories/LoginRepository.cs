@@ -2,20 +2,26 @@
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Threading.Tasks;
+using TurismoReal_Login.Infra.Context;
 
 namespace TurismoReal_Login.Infra.Repositories
 {
     public class LoginRepository : ILoginRepository
     {
+        protected readonly OracleContext _context;
+
+        public LoginRepository()
+        {
+            _context = new OracleContext();
+        }
+
         public async Task<bool> LoginAsync(string email, string pass)
         {
-            OracleConnection con = new OracleConnection(Environment.GetEnvironmentVariable("DB_CONNECTION"));
-            con.Open();
-            OracleCommand cmd = new OracleCommand("sp_login", con);
+            _context.OpenConnection();
+            OracleCommand cmd = new OracleCommand("sp_login", _context.GetConnection());
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             
             cmd.BindByName = true;
-
             cmd.Parameters.Add("email", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
             cmd.Parameters.Add("pass", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
             cmd.Parameters.Add("login", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
@@ -24,7 +30,7 @@ namespace TurismoReal_Login.Infra.Repositories
             cmd.Parameters["pass"].Value = pass;
 
             await cmd.ExecuteNonQueryAsync();
-            con.Close();
+            _context.CloseConnection();
 
             int login = int.Parse(cmd.Parameters["login"].Value.ToString());
             if (login == 1)
