@@ -23,7 +23,7 @@ Para abrir el servicio desde visual studio, solamente se debe abrir un proyecto 
 ---
 ## Consumir Servicio  
 Para consumir el servicio cuando este se encuentra en ejecución, se debe hacer uso de un cliente HTTP como Insomnia o Postman y la manera de consultarlo es la siguiente.  
-- **URL:** http://localhost:5001/api/v1/login
+- **URL:** http://localhost:5000/api/v1/login
 - **Method:** POST  
   
 **PAYLOAD**
