@@ -19,36 +19,25 @@ namespace TurismoReal_Login.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<object> Login([FromBody] LoginPayload pyl)
+        public async Task<ResponseOK> Login([FromBody] LoginPayload payload)
         {
             LogModel log = new LogModel();
             log.servicio = "turismo-real-login";
-            log.payload = pyl;
+            log.payload = payload;
             DateTime startService = DateTime.Now;
 
-            ResponseOK responseOK = new ResponseOK();
-            bool result = await _loginRepository.LoginAsync(pyl.email, pyl.password);
-            if (result)
-            {
-                responseOK.message = "Usuario Autorizado.";
-                responseOK.login = result;
-            }
-            else
-            {
-                responseOK.message = "Usuario No Autorizado.";
-                responseOK.login = result;
-            }
-
+            ResponseOK result = await _loginRepository.LoginAsync(payload.email, payload.password);
+            
             // LOG
             log.inicioSolicitud = startService;
             log.finSolicitud = DateTime.Now;
             log.tiempoSolicitud = (log.finSolicitud - log.inicioSolicitud).TotalMilliseconds + " ms";
             log.statusCode = 200;
-            log.response = responseOK;
+            log.response = result;
             Console.WriteLine(log.parseJson());
             // LOG
 
-            return responseOK;
+            return result;
         }
     }
 }
