@@ -41,7 +41,8 @@ Para consumir el servicio cuando este se encuentra en ejecución, se debe hacer 
 ```
 {
   "message": "Usuario Autorizado.",
-  "login": true
+  "login": true,
+  "tipo": "Cliente"
 }
 ```
 
@@ -49,6 +50,7 @@ Para consumir el servicio cuando este se encuentra en ejecución, se debe hacer 
 ```
 {
   "message": "Usuario No Autorizado.",
-  "login": false
+  "login": false,
+  "tipo": ""
 }
 ```
