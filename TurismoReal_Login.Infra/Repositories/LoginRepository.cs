@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
+using System.Data;
 using System.Threading.Tasks;
 using TurismoReal_Login.Core.DTOs;
 using TurismoReal_Login.Core.Interfaces;
@@ -22,12 +23,12 @@ namespace TurismoReal_Login.Infra.Repositories
             {
                 _context.OpenConnection();
                 OracleCommand cmd = new OracleCommand("sp_login", _context.GetConnection());
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.BindByName = true;
-                cmd.Parameters.Add("email_u", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
-                cmd.Parameters.Add("pass_u", OracleDbType.Varchar2).Direction = System.Data.ParameterDirection.Input;
-                cmd.Parameters.Add("tipo_u", OracleDbType.Varchar2, 50).Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add("email_u", OracleDbType.Varchar2).Direction = ParameterDirection.Input;
+                cmd.Parameters.Add("pass_u", OracleDbType.Varchar2).Direction = ParameterDirection.Input;
+                cmd.Parameters.Add("tipo_u", OracleDbType.Varchar2, 50).Direction = ParameterDirection.Output;
 
                 cmd.Parameters["email_u"].Value = email;
                 cmd.Parameters["pass_u"].Value = pass;
