@@ -29,6 +29,7 @@ namespace TurismoReal_Login.Infra.Repositories
                 cmd.Parameters.Add("email_u", OracleDbType.Varchar2).Direction = ParameterDirection.Input;
                 cmd.Parameters.Add("pass_u", OracleDbType.Varchar2).Direction = ParameterDirection.Input;
                 cmd.Parameters.Add("tipo_u", OracleDbType.Varchar2, 50).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("usuario_id", OracleDbType.Int32).Direction = ParameterDirection.Output;
 
                 cmd.Parameters["email_u"].Value = email;
                 cmd.Parameters["pass_u"].Value = pass;
@@ -37,19 +38,19 @@ namespace TurismoReal_Login.Infra.Repositories
                 _context.CloseConnection();
 
                 string tipo = cmd.Parameters["tipo_u"].Value.ToString();
-                Console.WriteLine(tipo);
+                int usuario = Convert.ToInt32(cmd.Parameters["usuario_id"].Value.ToString());
 
                 if (tipo.CompareTo("ERROR") == 0)
                 {
-                    return new ResponseOK("Usuario No Autorizado.", false, "");
+                    return new ResponseOK("Usuario No Autorizado.", false, "", usuario);
                 }
 
-                return new ResponseOK("Usuario Autorizado.", true, tipo);
+                return new ResponseOK("Usuario Autorizado.", true, tipo, usuario);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return new ResponseOK("ERROR", false, String.Empty);
+                return new ResponseOK("ERROR", false, String.Empty, 0);
             }
     }
     }
